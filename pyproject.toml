@@ -1,0 +1,57 @@
+[project]
+name = "aegis-pdm"
+version = "0.1.0"
+description = "AEGIS-PdM: Edge-to-cloud predictive maintenance platform (TinyML, MLOps, DevOps)."
+requires-python = ">=3.12,<3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "ruff>=0.8.0",
+    "mypy>=1.13.0",
+    "pytest>=8.3.0",
+    "pytest-cov>=6.0.0",
+    "pre-commit>=4.0.0",
+]
+
+[tool.uv]
+# Monorepo applicatif : on gère l'environnement, on ne construit pas de package installable.
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["frontend", "edge/stm32", "data", ".venv"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+    "N",   # pep8-naming
+    "C4",  # flake8-comprehensions
+    "PT",  # flake8-pytest-style
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_configs = true
+exclude = ["^frontend/", "^edge/stm32/", "^data/", "^\\.venv/"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+    "integration: tests needing several services (Docker Compose)",
+    "e2e: end-to-end tests of the full pipeline",
+    "hil: hardware-in-the-loop tests needing the STM32 board",
+]
