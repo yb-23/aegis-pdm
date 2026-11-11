@@ -1,0 +1,74 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.python-version
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# ---------- Secrets & environnement ----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+terraform.tfstate*
+*.tfstate*
+.terraform/
+.tofu/
+*.tfvars
+!*.tfvars.example
+
+# ---------- Données & modèles (gérés par DVC, jamais par Git) ----------
+/data/raw/*
+/data/synthetic/*
+/data/processed/*
+!/data/raw/.gitkeep
+!/data/synthetic/.gitkeep
+!/data/processed/.gitkeep
+*.onnx
+*.tflite
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.parquet
+mlruns/
+wandb/
+outputs/
+.hydra/
+
+# ---------- Node / Frontend ----------
+node_modules/
+.next/
+out/
+.vercel/
+*.tsbuildinfo
+
+# ---------- Embarqué STM32 ----------
+edge/stm32/Debug/
+edge/stm32/Release/
+edge/stm32/build/
+*.o
+*.elf
+*.bin
+*.map
+*.su
+*.d
+
+# ---------- IDE & OS ----------
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
