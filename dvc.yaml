@@ -1,0 +1,14 @@
+stages:
+  generate_dataset:
+    cmd: uv run python -m digital_twin.cli --params params.yaml
+    deps:
+      - digital_twin/cli.py
+      - digital_twin/generator.py
+      - digital_twin/faults/bearing_frequencies.py
+      - digital_twin/faults/bearing_signal.py
+      - digital_twin/faults/rotor_signal.py
+      - services/common/schemas.py
+    params:
+      - dataset
+    outs:
+      - data/synthetic/vibration_v1.parquet

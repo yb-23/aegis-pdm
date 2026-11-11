@@ -5,7 +5,10 @@ description = "AEGIS-PdM: Edge-to-cloud predictive maintenance platform (TinyML,
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "numpy>=2.5.4",
+    "pandas>=3.1.1",
+    "pyarrow>=26.0.1",
     "pydantic>=2.14.3",
+    "pyyaml>=6.0.3",
     "scipy>=1.18.1",
 ]
 
@@ -17,6 +20,9 @@ dev = [
     "pytest-cov>=6.0.0",
     "pre-commit>=4.0.0",
     "scipy-stubs>=1.18.1.1",
+    "pandas-stubs>=3.1.0.261029",
+    "types-pyyaml>=6.0.12.20261111",
+    "dvc>=3.67.1",
 ]
 
 [tool.uv]

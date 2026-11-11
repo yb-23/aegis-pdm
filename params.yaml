@@ -1,0 +1,11 @@
+dataset:
+  output_path: data/synthetic/vibration_v1.parquet
+  windows_per_class: 200
+  sampling_rate_hz: 12000
+  duration_s: 0.5
+  shaft_speed_hz_min: 25.0
+  shaft_speed_hz_max: 35.0
+  severity_min: 0.2
+  severity_max: 1.0
+  noise_std: 0.05
+  seed: 42

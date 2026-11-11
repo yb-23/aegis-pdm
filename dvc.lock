@@ -1,0 +1,47 @@
+schema: '2.0'
+stages:
+  generate_dataset:
+    cmd: uv run python -m digital_twin.cli --params params.yaml
+    deps:
+    - path: digital_twin/cli.py
+      hash: md5
+      md5: b834253c0a1bb8cd248f6868b1ae452e
+      size: 2571
+    - path: digital_twin/faults/bearing_frequencies.py
+      hash: md5
+      md5: 4c806cd8c88540f2652c533eef34305b
+      size: 1463
+    - path: digital_twin/faults/bearing_signal.py
+      hash: md5
+      md5: a4d16cda7fba2185757c4d3ae4a71bdf
+      size: 3623
+    - path: digital_twin/faults/rotor_signal.py
+      hash: md5
+      md5: 217ead078c28e6d1bb155093567e86a5
+      size: 1841
+    - path: digital_twin/generator.py
+      hash: md5
+      md5: 43a46371eaeecdb4046d3a22ca48e311
+      size: 1114
+    - path: services/common/schemas.py
+      hash: md5
+      md5: 9226be881de6f08a758c26ec5ed3a505
+      size: 3793
+    params:
+      params.yaml:
+        dataset:
+          output_path: data/synthetic/vibration_v1.parquet
+          windows_per_class: 200
+          sampling_rate_hz: 12000
+          duration_s: 0.5
+          shaft_speed_hz_min: 25.0
+          shaft_speed_hz_max: 35.0
+          severity_min: 0.2
+          severity_max: 1.0
+          noise_std: 0.05
+          seed: 42
+    outs:
+    - path: data/synthetic/vibration_v1.parquet
+      hash: md5
+      md5: 817b47ffcd027fd017701955be3933d6
+      size: 29461574
